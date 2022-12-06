@@ -6,7 +6,7 @@ metadata:
   name: hello-world
   namespace: udacity
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: hello-world
@@ -20,11 +20,11 @@ spec:
           imagePullPolicy: Always
           name: hello-world
           ports:
-            - containerPort: 9000
+            - containerPort: 80
               protocol: TCP
           livenessProbe:
             httpGet:
-              port: 9000
+              port: 80
               path: /nginx_status
             initialDelaySeconds: 2
             periodSeconds: 2
