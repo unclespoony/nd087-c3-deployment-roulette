@@ -20,11 +20,11 @@ spec:
           imagePullPolicy: Always
           name: hello-world
           ports:
-            - containerPort: 80
+            - containerPort: 9000
               protocol: TCP
           livenessProbe:
             httpGet:
-              port: 80
+              port: 9000
               path: /nginx_status
             initialDelaySeconds: 2
             periodSeconds: 2
