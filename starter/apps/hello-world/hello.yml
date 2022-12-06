@@ -6,7 +6,7 @@ metadata:
   name: hello-world
   namespace: udacity
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: hello-world
@@ -25,7 +25,7 @@ spec:
           livenessProbe:
             httpGet:
               port: 9000
-              path: /nginx_status
+              path: /healthz
             initialDelaySeconds: 2
             periodSeconds: 2
       nodeSelector:
