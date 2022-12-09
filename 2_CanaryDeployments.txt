@@ -1,0 +1,72 @@
+############################Get the service IP############################
+
+[cloudshell-user@ip-10-6-91-151 canary]$ kubectl get svc -n udacity
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP                                                                     PORT(S)        AGE
+blue-svc     LoadBalancer   172.20.57.235   a8d690bc6c0e94491acd6e509b62d602-4f0c4eaf24f71dee.elb.us-east-2.amazonaws.com   80:30647/TCP   3h1m
+canary-svc   ClusterIP      172.20.27.8     <none>                                                                          80/TCP         47m
+
+############################curl 10 times showing results from each service############################
+
+[cloudshell-user@ip-10-6-91-151 canary]$ kubectl run debug --rm -i --tty --image nicolaka/netshoot -- /bin/bash
+If you don't see a command prompt, try pressing enter.
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 1</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 1</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 1</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 1</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# curl 172.20.27.8
+<html>
+<h1>This is version 2</h1>
+</html>
+bash-5.2# exit
+exit
+Session ended, resume using 'kubectl attach debug -c debug -i -t' command when the pod is running
+pod "debug" deleted
+
+############################Show the running pods############################
+
+[cloudshell-user@ip-10-6-91-151 canary]$ kubectl get pods --all-namespaces
+NAMESPACE     NAME                         READY   STATUS    RESTARTS   AGE
+kube-system   aws-node-8rjhm               1/1     Running   0          95m
+kube-system   aws-node-d9cv6               1/1     Running   0          97m
+kube-system   coredns-f47955f89-8tmwp      1/1     Running   0          96m
+kube-system   coredns-f47955f89-xvtr4      1/1     Running   0          98m
+kube-system   kube-proxy-5j47s             1/1     Running   0          95m
+kube-system   kube-proxy-mnvt4             1/1     Running   0          97m
+udacity       canary-v1-64598c676f-7xv62   1/1     Running   0          7m37s
+udacity       canary-v1-64598c676f-hspms   1/1     Running   0          7m37s
+udacity       canary-v1-64598c676f-s782g   1/1     Running   0          7m36s
+udacity       canary-v2-5dc9c56687-92b76   1/1     Running   0          24m
+udacity       canary-v2-5dc9c56687-g2w2c   1/1     Running   0          24m
+udacity       canary-v2-5dc9c56687-z6vkx   1/1     Running   0          26m
