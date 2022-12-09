@@ -1,4 +1,4 @@
 #!/bin/bash
 
-kubectl apply -f apps/blue-green/index_green_html.yml
-kubectl apply -f apps/blue-green/green.yml
+kubectl apply -f index_green_html.yml
+kubectl apply -f green.yml
