@@ -1,0 +1,32 @@
+### As seen below, the name of the app using the most memory is hello-world ###
+
+[cloudshell-user@ip-10-6-66-166 hello-world]$ kubectl top pods --sort-by memory
+NAME                                  CPU(cores)   MEMORY(bytes)   
+hello-world-794458d64d-b74mc          6m           19Mi            
+green-5cdd96c9b4-sn99j                1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-h6ksm   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-fcdtd   1m           3Mi             
+green-5cdd96c9b4-5qg5k                1m           3Mi             
+blue-8475cbdf46-2vq96                 1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-g6r44   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-lgbdl   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-4n9nl   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-f8ftv   1m           3Mi             
+canary-v1-64598c676f-8f4dz            0m           3Mi             
+green-5cdd96c9b4-vp2wl                1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-2mrbw   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-p2674   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-rbqp5   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-h8vjg   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-5txjw   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-94vmz   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-l6gjq   1m           3Mi             
+blue-8475cbdf46-t6wnz                 1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-6lg4p   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-6rgp9   1m           3Mi             
+bloaty-mcbloatface-58c98b98d8-985f4   1m           3Mi             
+blue-8475cbdf46-gmgxn                 1m           3Mi             
+canary-v1-64598c676f-92255            0m           3Mi             
+bloaty-mcbloatface-58c98b98d8-598bw   1m           3Mi             
+canary-v1-64598c676f-sb94f            0m           3Mi             
+[cloudshell-user@ip-10-6-66-166 hello-world]$ 
